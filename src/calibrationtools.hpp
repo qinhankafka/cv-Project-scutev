@@ -29,7 +29,7 @@ public:
     Size square_size = Size(100, 100);
 
 
-    // 
+    // Constructor
     CalibrationTool(std::vector<Mat>& input_images, int camera_type, int img_number) {
         cameratype = camera_type;
         images = input_images;
@@ -46,6 +46,7 @@ public:
         calibrate();
     }
 
+    //Convert the picture to grayscale.
     void convertImage() {
         for (Mat& img : images) {
             cvtColor(img, imgtemp, COLOR_RGB2GRAY);
@@ -73,6 +74,7 @@ public:
         }
     }
 
+    //Initialize the calibration board corner coordinates.
     void initPointSet() {
         for (int i = 0; i < board_size.height; ++i) {
             for (int j = 0; j < board_size.width; ++j) {
@@ -88,6 +90,7 @@ public:
         }
     }
 
+    //Calibration operation.
     void calibrate() {
         if (cameratype == 0) {
             // fisheye camera calibration
