@@ -10,4 +10,4 @@ The calibration algorithm for a single camera and camera pose estimation algorit
 Dependencies
 
 * Opencv.4.3.0
-* Cmake 
+* Cmake 3.14
