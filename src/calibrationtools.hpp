@@ -48,8 +48,8 @@ public:
         findCorners();
         initPointSet();
         calibrate();
-        saveCalibration();
         cameraPoseEstimate();
+        saveCalibration();
     }
 
     //Convert the picture to grayscale.
@@ -142,16 +142,6 @@ public:
         //Convert rotation vector to rotation matrix
         cv::Rodrigues(rotation_vector_pose,rotation_matrix);
 
-        //save camera pose
-        char buf[64];
-        sprintf(buf, "../data/CamPoseMatrix%d.yml", camID);
-        FileStorage fs(buf, FileStorage::WRITE);
-        if (fs.isOpened()) {
-            fs << "cameraType" << cameratype;
-            fs << "rotation_matrix" << rotation_matrix;
-            fs << "transform_vector" << transform_vector;
-            fs.release();
-        }
     }
 
     Matx33d getIntrinsicMatrix() {
@@ -161,12 +151,14 @@ public:
     //save calibration result
     void saveCalibration() {
         char buf[64];
-        sprintf(buf, "../data/CamCalibrationParam%d.yml", camID);
+        sprintf(buf, "../data/CameraParam%d.yml", camID);
         FileStorage fs(buf, FileStorage::WRITE);
         if (fs.isOpened()) {
             fs << "cameraType" << cameratype;
             fs << "intrinsic_matrix" << intrinsic_matrix;
             fs << "distortion_coeffs" << distortion_coeffs;
+            fs << "rotation_matrix" << rotation_matrix;
+            fs << "transform_vector" << transform_vector;
             fs.release();
         }
     }
@@ -177,7 +169,7 @@ private:
     Vec4d distortion_coeffs;
     Mat rotation_vector_pose;
     Matx33d rotation_matrix;
-    Mat transform_vector;
+    Vec3d transform_vector;
 
     std::vector<Vec3d> rotation_vector;
     std::vector<Vec3d> translation_vectors;
