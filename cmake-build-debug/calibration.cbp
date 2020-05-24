@@ -92,6 +92,9 @@
 		<Unit filename="/home/qinhan/cv-project/calibration/src/main.cpp">
 			<Option target="calibration"/>
 		</Unit>
+		<Unit filename="/home/qinhan/cv-project/calibration/src/topview.hpp">
+			<Option target="calibration"/>
+		</Unit>
 		<Unit filename="/home/qinhan/cv-project/calibration/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
