@@ -24,7 +24,7 @@ public:
         chessBordSize = Size(60, 60);
         imageSize = Size(2 * shiftSize.width + vehicleSize.width + 2 * chessBordSize.width,
                          2 * shiftSize.height + vehicleSize.height + 2 * chessBordSize.height);
-        shiftAdjustSize = Size(36, 27);
+
     }
 
     void initRect() {
@@ -41,8 +41,6 @@ public:
         maskB = Mat(imageRect[1].size(),CV_8UC1,Scalar(1));
         std::vector<std::vector<Point>> maskVec;
         maskVec[0].push_back(Point(0,imageRect[1].height));
-        
-
     }
 
 

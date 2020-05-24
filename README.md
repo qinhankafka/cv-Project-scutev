@@ -1,11 +1,11 @@
 # cv-Project-scutev
 ## current progress
 
-The calibration algorithm for a single camera is implemented, and the following parts need to be improved
+The calibration algorithm for a single camera and camera pose estimation algorithm are implemented, and the following parts need to be improved
 
-*  File reading and writing.
+*  File reading .
 * Read the picture algorithm from the camera.
-* Multi-camera calibration.
+
 
 Dependencies
 
