@@ -1,6 +1,7 @@
 #include <iostream>
 #include <opencv4/opencv2/imgcodecs.hpp>
 #include "calibrationtools.hpp"
+#include "topview.hpp"
 
 using namespace cv;
 
@@ -16,12 +17,15 @@ int main() {
         images.push_back(image);
     }
 
-    CalibrationTool tools = CalibrationTool(images, 0, imgNumber, 0);
-
-    imshow("test01", images[0]);
-
-    Matx33d result = tools.getIntrinsicMatrix();
-    std::cout << result << std::endl;
+//    CalibrationTool tools = CalibrationTool(images, 0, imgNumber, 0);
+//
+//    imshow("test01", images[0]);
+//
+//    Matx33d result = tools.getIntrinsicMatrix();
+//    std::cout << result << std::endl;
+    Topview topview;
+    topview.initSize();
+    topview.generate_masks();
 
     return 0;
 }

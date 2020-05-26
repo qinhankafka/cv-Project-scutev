@@ -137,7 +137,7 @@ public:
 
         //estimate camera pose in vehicle coordinate system
         cv::solvePnP(object_points_pose, corners_pose, intrinsic_matrix, distortion_coeffs, rotation_vector_pose,
-                     transform_vector);
+                     translation_vector);
 
         //Convert rotation vector to rotation matrix
         cv::Rodrigues(rotation_vector_pose,rotation_matrix);
@@ -158,7 +158,7 @@ public:
             fs << "intrinsic_matrix" << intrinsic_matrix;
             fs << "distortion_coeffs" << distortion_coeffs;
             fs << "rotation_matrix" << rotation_matrix;
-            fs << "transform_vector" << transform_vector;
+            fs << "translation_vector" << translation_vector;
             fs.release();
         }
     }
@@ -169,7 +169,8 @@ private:
     Vec4d distortion_coeffs;
     Mat rotation_vector_pose;
     Matx33d rotation_matrix;
-    Vec3d transform_vector;
+    Vec3d translation_vector;
+
 
     std::vector<Vec3d> rotation_vector;
     std::vector<Vec3d> translation_vectors;
